@@ -2,6 +2,14 @@
 
 > An AI-assisted fintech platform for safely analyzing unresolved payment transactions, automating recovery workflows, and escalating uncertain cases for human review.
 
+## 🌐 Live Demo
+
+* **Frontend:** [View Live Application]([https://YOUR-VERCEL-PROJECT.vercel.app](https://ai-powered-payment-revenue-recovery.vercel.app/))
+
+> **Note:** Replace the example URLs above with your actual Vercel and Render deployment URLs.
+
+---
+
 ## 🚀 Overview
 
 **AI-Powered Payment Revenue Recovery Agent** is an intelligent fintech system designed to analyze unresolved payment transactions and recommend the safest recovery action.
@@ -10,11 +18,11 @@ The platform helps payment operations teams handle situations where payment syst
 
 The AI-powered recovery workflow can recommend actions such as:
 
-* ⏳ **WAIT** — when the transaction is still processing
-* 💰 **RECOVER** — when payment success is confirmed
-* ↩️ **REFUND** — when the payment has failed
-* 🚨 **ESCALATE** — when human review is required
-* 🔍 **INVESTIGATE** — when available information is insufficient
+* ⏳ **WAIT** — When the transaction is still processing.
+* 💰 **RECOVER** — When payment success is confirmed.
+* ↩️ **REFUND** — When the payment has failed.
+* 🚨 **ESCALATE** — When human review is required.
+* 🔍 **INVESTIGATE** — When available information is insufficient.
 
 The system also provides automated status rechecks, payment simulations, a complete audit trail, a human review queue, and a modern fintech operations dashboard.
 
@@ -79,13 +87,11 @@ Final Resolution
 
 The AI agent analyzes unresolved payment transactions and recommends:
 
-* WAIT
-* RECOVER
-* REFUND
-* ESCALATE
-* INVESTIGATE
-
----
+* `WAIT`
+* `RECOVER`
+* `REFUND`
+* `ESCALATE`
+* `INVESTIGATE`
 
 ### 🔄 Automated Status Rechecks
 
@@ -97,20 +103,16 @@ For pending transactions, the system:
 4. Repeats the process up to the configured maximum recheck limit.
 5. Escalates the payment if it remains unresolved.
 
----
-
 ### 🧪 Payment Simulation Scenarios
 
 The project supports multiple payment scenarios:
 
-| Scenario          | Description                                          | Expected Result |
-| ----------------- | ---------------------------------------------------- | --------------- |
-| `PENDING_SUCCESS` | Payment initially remains pending and later succeeds | RECOVER         |
-| `PENDING_FAILED`  | Payment initially remains pending and later fails    | REFUND          |
-| `PENDING_FOREVER` | Payment remains pending after multiple rechecks      | ESCALATE        |
-| `STATUS_CONFLICT` | Payment providers return conflicting statuses        | ESCALATE        |
-
----
+| Scenario          | Description                                           | Expected Result |
+| ----------------- | ----------------------------------------------------- | --------------- |
+| `PENDING_SUCCESS` | Payment initially remains pending and later succeeds. | `RECOVER`       |
+| `PENDING_FAILED`  | Payment initially remains pending and later fails.    | `REFUND`        |
+| `PENDING_FOREVER` | Payment remains pending after multiple rechecks.      | `ESCALATE`      |
+| `STATUS_CONFLICT` | Payment providers return conflicting statuses.        | `ESCALATE`      |
 
 ### 🧾 Audit Timeline
 
@@ -129,8 +131,6 @@ Examples include:
 
 The frontend presents these events as a readable payment journey.
 
----
-
 ### 👨‍💻 Human Review Queue
 
 Payments are escalated for human review when:
@@ -139,11 +139,9 @@ Payments are escalated for human review when:
 * A transaction remains pending after the maximum number of rechecks.
 * Available information is insufficient for a safe automated decision.
 
----
-
 ### 📊 Recovery Operations Dashboard
 
-The dashboard provides real-time operational insights including:
+The dashboard provides operational insights, including:
 
 * Total Payments
 * Amount at Risk
@@ -161,13 +159,13 @@ The dashboard provides real-time operational insights including:
 ```text
                     ┌─────────────────────────┐
                     │      React Frontend     │
-                    │  Recovery Dashboard    │
+                    │   Recovery Dashboard    │
                     └────────────┬────────────┘
                                  │
                                  ▼
                     ┌─────────────────────────┐
-                    │      Express API        │
-                    │       Backend           │
+                    │       Express API       │
+                    │         Backend         │
                     └────────────┬────────────┘
                                  │
               ┌──────────────────┼──────────────────┐
@@ -206,39 +204,25 @@ The dashboard provides real-time operational insights including:
 
 * MongoDB Atlas
 
+### Deployment
+
+* Vercel — Frontend
+* Render — Backend
+* MongoDB Atlas — Cloud Database
+
 ---
 
 ## 📡 API Endpoints
 
-### Dashboard Statistics
-
-```http
-GET /stats
-```
-
-### Get All Payments
-
-```http
-GET /payments
-```
-
-### Get Payment Details
-
-```http
-GET /payments/:paymentId
-```
-
-### Get Payment Audit Timeline
-
-```http
-GET /payments/:paymentId/audit
-```
-
-### Create Payment
-
-```http
-POST /payments
-```
+| Method | Endpoint                     | Description                          |
+| ------ | ---------------------------- | ------------------------------------ |
+| `GET`  | `/`                          | Backend health check                 |
+| `GET`  | `/stats`                     | Retrieve dashboard statistics        |
+| `GET`  | `/payments`                  | Retrieve all payments                |
+| `GET`  | `/payments/:paymentId`       | Retrieve payment details             |
+| `GET`  | `/payments/:paymentId/audit` | Retrieve a payment's audit timeline  |
+| `POST` | `/payments`                  | Create and process a payment         |
+| `POST` | `/agent/analyze`             | Analyze a payment using the AI agent |
 
 ---
 
@@ -251,8 +235,10 @@ The AI-powered agent:
 * Avoids unsafe actions when payment information is uncertain.
 * Rechecks pending transactions before making a final decision.
 * Escalates conflicting payment states.
-* Maintains a complete audit trail.
+* Maintains an audit trail of decisions and processing events.
 * Prioritizes human review when automated resolution is unsafe.
+
+> **Note:** This project uses simulated payment scenarios for demonstrating recovery workflows. It is not a production payment-processing or refund system.
 
 ---
 
@@ -276,7 +262,6 @@ ai-revenue-recovery/
 │   └── README.md
 │
 ├── .gitignore
-│
 └── README.md
 ```
 
@@ -284,14 +269,31 @@ ai-revenue-recovery/
 
 ## 🚀 Getting Started
 
-### Backend Setup
+Follow these instructions to run the project locally.
+
+### Prerequisites
+
+* Node.js and npm
+* MongoDB Atlas account or a local MongoDB instance
+* Google Gemini API key
+
+### 1. Clone the Repository
+
+```bash
+git clone <YOUR-GITHUB-REPOSITORY-URL>
+cd ai-revenue-recovery
+```
+
+Replace `<YOUR-GITHUB-REPOSITORY-URL>` with your repository's Git URL.
+
+### 2. Set Up the Backend
 
 ```bash
 cd backend
 npm install
 ```
 
-Create a `.env` file:
+Create a `.env` file inside the `backend` directory:
 
 ```env
 PORT=5000
@@ -305,21 +307,32 @@ Start the backend:
 npm run dev
 ```
 
-Backend:
+The backend will typically run at:
 
 ```text
 http://localhost:5000
 ```
 
----
+Ensure that your backend `package.json` defines the `dev` script. If it does not, use the appropriate start command configured for your project.
 
-### Frontend Setup
+### 3. Set Up the Frontend
 
 Open another terminal:
 
 ```bash
 cd frontend
 npm install
+```
+
+Create a `.env` file inside the `frontend` directory:
+
+```env
+VITE_API_URL=http://localhost:5000
+```
+
+Start the frontend:
+
+```bash
 npm run dev
 ```
 
@@ -328,6 +341,18 @@ The frontend will typically run at:
 ```text
 http://localhost:5173
 ```
+
+### 4. Configure Environment Variables for Deployment
+
+For the deployed frontend, configure the following environment variable in Vercel:
+
+```env
+VITE_API_URL=https://YOUR-RENDER-SERVICE.onrender.com
+```
+
+Replace the example value with your actual Render backend URL.
+
+Configure `MONGODB_URI` and `GEMINI_API_KEY` in the Render backend service's environment variables. Never commit actual credentials or API keys to GitHub.
 
 ---
 
