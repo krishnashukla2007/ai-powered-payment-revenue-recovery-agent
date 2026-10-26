@@ -3,7 +3,10 @@
 > An AI-assisted fintech platform for safely analyzing unresolved payment transactions, automating recovery workflows, and escalating uncertain cases for human review.
 
 🌐 Live Demo
-Frontend: AI-Powered Payment Revenue Recovery Agent
+## 🌐 Live Demo
+
+* **Frontend:** [Live Application](https://ai-powered-payment-revenue-recovery.vercel.app/)
+
 
 > **Note:** Replace the example URLs above with your actual Vercel and Render deployment URLs.
 
